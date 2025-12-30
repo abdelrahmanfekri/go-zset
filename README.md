@@ -1,3 +1,10 @@
+# Redis Zset
+
+## Testing the Zset
+
+```go run main.go```
+
+
 ```output
 Adding members to the zset
 Getting the score of a member
