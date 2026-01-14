@@ -86,4 +86,50 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println("all members removed")
+
+	// duplicate member
+	err = zset.Add(ctx, 4, "test3")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// get the score of a member
+	score, err = zset.Get(ctx, "test3")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(score)
+
+	// add a duplicate member
+	err = zset.Add(ctx, 2, "test3")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// get the score of a member
+	score, err = zset.Get(ctx, "test3")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(score)
+
+	err = zset.Add(ctx, 10, "test3")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// get the score of a member
+	score, err = zset.Get(ctx, "test3")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(score)
+
+	fmt.Println("Getting all members of the zset")
+	// Get all members of the zset
+	all, err = zset.GetAll(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(all)
 }
